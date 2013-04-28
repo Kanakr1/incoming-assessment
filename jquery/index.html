@@ -7,8 +7,16 @@
     </ul>
 
     <script>
-      setInterval(function() {
-        $('body').trigger('randomNumberEvent', Math.floor( Math.random() * 1000 ));
+      setInterval(function() {(function(){
+        var randomNumber = Math.floor(Math.random()* 1000);
+        console.log(randomNumber);
+        var $listItem = $('<li></li>')
+        $listItem.text(randomNumber);
+        $listItem.click(function (){
+          alert(randomNumber);
+        });
+        $('.numberList').append($listItem)
+        })() 
       }, 3500);
 
       /*
