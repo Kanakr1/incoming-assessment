@@ -3,7 +3,7 @@ var _ = {};
 (function() {
   // Call iterator(value, key, collection) for each element of collection
   _.each = function(obj, iterator) {
-  	if(obj === null){
+  	if(!obj){
   		return;
   	}
   	else if(obj.length){
@@ -11,8 +11,10 @@ var _ = {};
   			iterator(obj[i], i, obj);
   		}
   	} else {
-  		for(key in obj){
-  			iterator(obj[key], key, obj);
+  		for(var key in obj){
+  			if (obj.hasOwnProperty(key)){
+  				iterator(obj[key], key, obj);
+  			}
   		}
   	}
   };
