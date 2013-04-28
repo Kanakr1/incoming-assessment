@@ -11,6 +11,7 @@ describe("_.each", function() {
     var answers = [];
     var obj = {one : 1, two : 2, three : 3};
     obj.constructor.prototype.four = 4;
+    debugger;
     _.each(obj, function(value, key){ answers.push(key); });
     expect(answers.join(", ")).to.equal('one, two, three');
   });
