@@ -7,21 +7,20 @@
     </ul>
 
     <script>
-      setInterval(function() {(function(){
-        var randomNumber = Math.floor(Math.random()* 1000);
-        console.log(randomNumber);
-        var $listItem = $('<li></li>')
-        $listItem.text(randomNumber);
-        $listItem.click(function (){
-          alert(randomNumber);
-        });
-        $('.numberList').append($listItem)
-        })() 
+      setInterval(function() {
+        $('body').trigger('randomNumberEvent', Math.floor( Math.random() * 1000 ));
       }, 3500);
-
       /*
        * Please write your solution below.
        */
+       $('body').on('randomNumberEvent', function(evnt, numb){
+         var $listItem = $('<li></li>');
+         $listItem.text(numb);
+         $listItem.click(function(){
+           alert(numb);
+         });
+         $('.numberList').append($listItem);
+       });
     </script>
   </body>
 </html>
